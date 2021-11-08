@@ -34,9 +34,12 @@ app.get('/api/:input?', (req, res, next) => {
   console.log("First input: " + input);
   var date = new Date(input);
   console.log("First date: " + date);
-  if (isNumeric(input)){
+  if (isNumeric(input) && input.length == 10){
     date = new Date(parseInt(input)*1000);
     console.log("isNumeric: " + date);
+  } else if (isNumeric(input) && input.length == 13){
+    date = new Date(parseInt(input));
+    console.log("isNumeric: " + date);    
   }
   if (input ==null){
     date = new Date();
